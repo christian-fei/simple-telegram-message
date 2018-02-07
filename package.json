@@ -1,0 +1,27 @@
+{
+  "name": "simple-telegram-message",
+  "version": "1.0.0",
+  "description": "send a telegram message to yourself, a friend or a channel with node.js",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/christian-fei/simple-telegram-message.git"
+  },
+  "keywords": [
+    "simple",
+    "telegram",
+    "send",
+    "message",
+    "channel",
+    "notification",
+    "api"
+  ],
+  "author": "Christian Fei",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/christian-fei/simple-telegram-message/issues"
+  },
+  "homepage": "https://github.com/christian-fei/simple-telegram-message#readme",
+  "dependencies": {}
+}
