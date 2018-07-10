@@ -21,18 +21,19 @@ function sendMessageFor (token, channel) {
 }
 
 // https://core.telegram.org/bots/api#sendinvoice
-function sendInvoiceFor (token, channel, providerToken) {
+function sendInvoiceFor (token, channel, params) {
   const baseUrl = `https://api.telegram.org/bot${token}`
 
   return message => {
     let urlParams = querystring.stringify({
       chat_id: channel,
-      title: 'Traden Subscription',
-      payload: '',
-      provider_token: providerToken,
-      start_parameter: Date.now(),
-      currency: 'EUR',
-      prices: [{label: 'Subscription', amount: 50}] // https://core.telegram.org/bots/api#labeledprice
+      title: params.title,
+      payload: params.payload,
+      provider_token: params.provider_token,
+      start_parameter: params.start_parameter,
+      currency: params.currency,
+      prices: params.prices // https://core.telegram.org/bots/api#labeledprice
+                            // e.g: [{label: 'Subscription', amount: 50}]
     })
 
     return sendRequest(`${baseUrl}/sendInvoice?${urlParams}`)
