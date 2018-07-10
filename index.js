@@ -2,7 +2,8 @@ const https = require('https')
 const querystring = require('querystring')
 
 module.exports = {
-  sendMessageFor
+  sendMessageFor,
+  sendInvoiceFor
 }
 
 function sendMessageFor (token, channel) {
@@ -17,17 +18,36 @@ function sendMessageFor (token, channel) {
 
     return sendRequest(`${baseUrl}/sendMessage?${urlParams}`)
   }
+}
 
-  function sendRequest (url) {
-    return new Promise((resolve, reject) => {
-      https.get(url, (res) => {
-        if (res.statusCode === 200) return resolve(res)
-        reject(res)
-      })
-      .on('error', (e) => {
-        console.log(e, 'got an error in https request')
-        reject(e)
-      })
+// https://core.telegram.org/bots/api#sendinvoice
+function sendInvoiceFor (token, channel, providerToken) {
+  const baseUrl = `https://api.telegram.org/bot${token}`
+
+  return message => {
+    let urlParams = querystring.stringify({
+      chat_id: channel,
+      title: 'Traden Subscription',
+      payload: '',
+      provider_token: providerToken,
+      start_parameter: Date.now(),
+      currency: 'EUR',
+      prices: [{label: 'Subscription', amount: 50}] // https://core.telegram.org/bots/api#labeledprice
     })
+
+    return sendRequest(`${baseUrl}/sendInvoice?${urlParams}`)
   }
+}
+
+function sendRequest (url) {
+  return new Promise((resolve, reject) => {
+    https.get(url, (res) => {
+      if (res.statusCode === 200) return resolve(res)
+      reject(res)
+    })
+    .on('error', (e) => {
+      console.log(e, 'got an error in https request')
+      reject(e)
+    })
+  })
 }
