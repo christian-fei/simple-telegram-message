@@ -5,7 +5,7 @@ const { sendMessageFor } = require('.')
 main(process.env)
   .then(() => process.exit(0))
   .catch((err) => {
-    console.error(`an error occurred: ${err.message}`)
+    console.error(`an error occurred`, err.message)
     process.exit(1)
   })
 
