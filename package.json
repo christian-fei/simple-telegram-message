@@ -1,6 +1,7 @@
 {
   "name": "simple-telegram-message",
   "version": "1.4.0",
+  "bin": "bin.js",
   "description": "send a telegram message to yourself, a friend or a channel with node.js",
   "main": "index.js",
   "scripts": {},
