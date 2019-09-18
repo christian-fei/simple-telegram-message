@@ -4,7 +4,9 @@
   "bin": "bin.js",
   "description": "send a telegram message to yourself, a friend or a channel with node.js",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "tap --100"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/christian-fei/simple-telegram-message.git"
@@ -24,5 +26,9 @@
     "url": "https://github.com/christian-fei/simple-telegram-message/issues"
   },
   "homepage": "https://github.com/christian-fei/simple-telegram-message#readme",
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "nock": "^11.3.4",
+    "tap": "^14.6.4"
+  }
 }
