@@ -30,7 +30,7 @@ sendMessage(`Hi from bot!`)
 
 this function is the only one exported by `simple-telegram-message`, and it is used to create a new function (see [sendMessage](#send-message))
 
-### `sendMessage`
+### `sendMessage`
 
 `sendMessage` is the function returned by [sendMessageFor](#send-message-for).
 
